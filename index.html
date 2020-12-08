@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Dashboard Maker Docs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Scrutinizer Dashboard Maker";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> Dashboard Maker Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href=".">Scrutinizer Dashboard Maker</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#example-commands">Example Commands</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#project-layout">Project layout</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#modifying-the-script">Modifying the Script</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#example-folder-structure">Example Folder Structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#global-variables">Global Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dashboard-objects">Dashboard Objects</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#example-dashboard-objects">Example Dashboard Objects</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#adding-designed-reports">Adding Designed Reports</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#example-designed-report-object">Example Designed Report Object</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#headers">"headers"</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#group_by">"group_by"</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#trend_by">"trend_by"</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#select">"select"</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#exporting-the-designed-reports">Exporting the Designed Reports</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#importing-and-running">Importing and running</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#importing-dashboards">Importing Dashboards</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#importing-designed-reports">Importing Designed Reports</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#adding-command-line-references">Adding Command Line References</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">Dashboard Maker Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Scrutinizer Dashboard Maker</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="scrutinizer-dashboard-maker">Scrutinizer Dashboard Maker</h1>
+<p>A project that helps Users and Engineers create 'quick start' dashboards for Scrutinizer deployments. </p>
+<h2 id="commands">Commands</h2>
+<ul>
+<li><code>python dashboard_maker.py --make [dashboard name]</code> - call the main function to build your dashboards and desinged reports.</li>
+<li><code>python dashboard_maker.py --delete [dashboard name]</code> - call the delete_all function to remove your dashboard and designed reports.</li>
+</ul>
+<h2 id="example-commands">Example Commands</h2>
+<ul>
+<li><code>python dashboard_maker.py --make gigamon</code> - Create the pre-built gigamon dashboard.</li>
+<li><code>python dashboard_maker.py --delete gigamon</code> - Delete pre-built gigamon dashboard.</li>
+</ul>
+<h2 id="project-layout">Project layout</h2>
+<pre><code>config/
+    db_creds.ini   # The configuration file. This is where the user will fill out required DB usernames / passwords.
+docs/ 
+    index.md  # The documentation homepage.
+modules/
+    dashboard_handler.py # Handles creating queries needed for dashboard creating and management. 
+    db_handler.py # Responsible for establishing connections to the database and executing queries.
+    json_handler.py # Many of the database queries require a JSON object as part of the query. This class contains various methods for generating those JSON objects. 
+    report_designer.py # In the event that your dashboard required reports that are not native to Scrutinizer, they can be designed using the report_designer method. 
+    report_handler.py # Used to generate the SQL needed for making Saved Reports and fetching ID's. 
+    report_maker.py # Function that is used to execute all of the designed report SQL in the proper order. 
+custom_dashboards/ #This is where users can add in there own custom dashboards as desired. 
+    gigamon/ #pre-built Gigamon dashboard ready to be used.
+        dashboards/ #pre-built dashboards
+            gigamon_counts.py 
+            gigamon_dns.py
+            gigamon_sus.py
+        designed_reports/ #since the gigamon dashbaords rely on reports that are not native to Scrutinizer, they will be created as the script runs. Those reports are stored here.
+            gigamon_reports.py #holds all of the reports to be created for the Gigamon dashboard
+dashboard_maker.py #primary file used to execute the created of dashboards. Holds a variety of methods that receive the necessary object for dashboard creation.
+</code></pre>
+<h2 id="modifying-the-script">Modifying the Script</h2>
+<p>If you would like to create a dashboard outside of what is provided you will need to:</p>
+<ul>
+<li>
+<p>create a <strong>project directory</strong> in  'custom_dashboards'  hold your new dashboard(s). </p>
+<ul>
+<li>Add a <strong>dashboards</strong> sub directory</li>
+<li>Add a <strong>designed reports</strong> sub directory - only if you intend on using reports that aren't out of the box with Scrutinizer. </li>
+</ul>
+<h3 id="example-folder-structure">Example Folder Structure</h3>
+<pre><code>custom_dahboards/
+    my_new_project/
+        dashboards/
+        designed_reports/
+</code></pre>
+</li>
+<li>
+<p>within the dashboards folder create a python file that will hold the gadget objects, this documentation will use <i>my_example_dash.py</i> as a file name (as seen below)</p>
+<pre><code>custom_dahboards/
+    my_new_project/
+        dashboards/
+            my_example_dash.py
+        designed_reports/
+</code></pre>
+<h3 id="global-variables">Global Variables</h3>
+<p>These globale variables are passed into each dashboard object, the could be ommited and placed into each object manually if desired </p>
+<pre><code>dashboard_name = 'Name of Dashboard to be Created'
+
+exporter = 'in_GROUP_ALL' # this will use all exporters, alternativaly you could use an object for the exporters you want.
+
+user_id = 1 # Part of making the dashbaords required yout o make the dashboard visible to a user. 1 represents the default admin user.
+</code></pre>
+<h3 id="dashboard-objects">Dashboard Objects</h3>
+<p>Each dashboard object <b>MUST</b> have all of the key / value pairs shown below. if you omit any of them you will throw an error and terminate the script. </p>
+<p>These objects are responsible for: </p>
+<p>1.) Creating the Dashboard </p>
+<p>2.) Creating Saved Reports </p>
+<p>3.) Converting those Saved Reports into Gadgets</p>
+<p>4.) Moving those Gadgets to the Dashboard in the correct position. </p>
+<h4 id="example-dashboard-objects">Example Dashboard Objects</h4>
+</li>
+</ul>
+<pre><code class="language-json">report_1 = {
+    &quot;name&quot; : &quot;Name for Gadget1&quot;,    
+    &quot;lang&quot; : &quot;report lang key&quot;, 
+    &quot;filters&quot; : {}, 
+    &quot;position&quot; : { &quot;width&quot;:4, &quot;height&quot;:15, &quot;y&quot;:0, &quot;x&quot;:0 },
+    &quot;direction&quot;:&quot;inbound&quot;,
+    &quot;time_range&quot;:&quot;Last24Hours&quot;,
+    &quot;data_type&quot;: &quot;total&quot;,
+    &quot;stacked&quot;:&quot;stacked&quot;,
+    &quot;exporter&quot;: exporter,
+    &quot;view&quot;:&quot;tableGraph&quot;,
+    &quot;user_id&quot;:user_id,
+    &quot;dashboard&quot;: dashboard_counts
+}
+
+report_2 = {
+    &quot;name&quot; : &quot;Name for Gadget2&quot;,    
+    &quot;lang&quot; : &quot;report lang key&quot;, 
+    &quot;filters&quot; : {}, 
+    &quot;position&quot; : { &quot;width&quot;:4, &quot;height&quot;:9, &quot;y&quot;:14, &quot;x&quot;:0 },
+    &quot;direction&quot;:&quot;inbound&quot;,
+    &quot;time_range&quot;:&quot;Last24Hours&quot;,
+    &quot;data_type&quot;: &quot;total&quot;,
+    &quot;stacked&quot;:&quot;stacked&quot;,
+    &quot;exporter&quot;: exporter,
+    &quot;view&quot;:&quot;tableGraph&quot;,
+    &quot;user_id&quot;:user_id,
+    &quot;dashboard&quot;: dashboard_counts
+}
+</code></pre>
+<pre><code>example_gadgets_list = [report_1, report_2] #all gadgets are put into a list and imported into main program file
+</code></pre>
+<ul>
+<li><b>lang</b> : this is the report lang key, examples would be things like "conversationsWKP" or "applications"</li>
+<li><b>filters</b> : if you do not want any filters in your gadget leave this blank, otherwise you can pass them into it. <ul>
+<li>as an example adding {"sdfPorts_0":"in_53-17"} to filters would filter the gadget for DNS traffic</li>
+</ul>
+</li>
+<li><b>position</b> : Determins where each gadget will be placed. This is a little tricky to understand at first. The best approach I have found is to build a sample dashboard in the UI and look at <i>plixer.dash_tabs</i> in the databse to see what the positioning object looks like. This example image demonstrates how the position objects places each gadget in our sample gigamon dashboard. 
+<img src = 'Counts.png'></li>
+</ul>
+<h3 id="adding-designed-reports">Adding Designed Reports</h3>
+<p>The <b>lang</b> key used in each dashboard object can reference a 'out of the box' Scrutinizer report, or it can reference the lang_key of a report you have created in report designer. </p>
+<p>This Script offers a way to create designed reports as part of the dashboard creation. In order to utilize this you will need to add a python file into your designed_reports directory this file will hold one (or multiple) designed report the can be imported into the main file. We will use <i>my_example_reports.py</i> as a file name for this documenation. </p>
+<pre><code>    custom_dahboards/
+        my_new_project/
+            dashboards/
+                my_example_dash.py
+            designed_reports
+                my_example_reports.py
+</code></pre>
+<p>In order to create a designed report in Scrutinizer there are 5 database tables that are modified. </p>
+<ul>
+<li>plixer.report_types;</li>
+<li>plixer.report_types_select;</li>
+<li>plixer.report_types_groupby;</li>
+<li>plixer.report_types_operations;</li>
+<li>languages.custom;</li>
+</ul>
+<p><strong><em>It's imporant to note that each key in the example object provided below match the fields in the database. To really get a feel for how to use this utilitly I find the best way is to create the report you want with Report Designer in the Scrutinizer UI and then look at each of the database tables for that report this will allow you to make sure you are replicating the report in the correct way, it will also help you troubleshoot any bugs your run into </em></strong>. </p>
+<h4 id="example-designed-report-object">Example Designed Report Object</h4>
+<pre><code class="language-json">example_designed_report = [
+
+[
+                {&quot;headers&quot;:{
+                        &quot;rpt_lang&quot;:&quot;custom_exampledefined&quot;,
+                        &quot;pretty_name&quot;:&quot;My Example Report&quot;,
+                        &quot;menu_group&quot;: 23,
+                        &quot;graph_type&quot;:&quot;stacked&quot;,
+                        &quot;bi_width&quot;:950,
+                        &quot;totals_table&quot;:0
+                    }},
+
+                    {&quot;group_by&quot;:{
+                    &quot;col_name&quot;:&quot;srcipgroup&quot;,
+                    &quot;col_order&quot;:1,
+                    &quot;col_lang&quot;:&quot;Src Group&quot;,
+                    &quot;col_style&quot;:&quot;width_dynamic&quot;,
+                    &quot;col_header_title_attr&quot;:&quot;null&quot;,
+                    &quot;col_width&quot;:&quot;dynamic&quot;,
+                    &quot;manufactured&quot;: 1}},
+                    {&quot;group_by&quot;:{
+                    &quot;col_name&quot;:&quot;sourceipaddress&quot;,
+                    &quot;col_order&quot;:2,
+                    &quot;col_lang&quot;:&quot;Src IP&quot;,
+                    &quot;col_style&quot;:&quot;width_dynamic&quot;,
+                    &quot;col_header_title_attr&quot;:&quot;null&quot;,
+                    &quot;col_width&quot;:&quot;dynamic&quot;,
+                    &quot;manufactured&quot;: 'null'}},
+                    {&quot;group_by&quot;:{
+                    &quot;col_name&quot;:&quot;applicationid&quot;,
+                    &quot;col_order&quot;:3,
+                    &quot;col_lang&quot;:&quot;App&quot;,
+                    &quot;col_style&quot;:&quot;width_dynamic&quot;,
+                    &quot;col_header_title_attr&quot;:&quot;null&quot;,
+                    &quot;col_width&quot;:&quot;dynamic&quot;,
+                    &quot;manufactured&quot;: 'null'}},
+
+                    {&quot;select&quot;:{
+                    &quot;col_name&quot;:&quot;octetdeltacount&quot;,
+                    &quot;manufactured&quot;: 'null'}},
+
+
+
+                {&quot;trend_by&quot;:{
+                    &quot;col_name_sum&quot;:&quot;sum_octetdeltacount&quot;,
+                    &quot;col_nam_reg&quot;:&quot;octetdeltacount&quot;,
+                    &quot;col_order&quot;:7,
+                    &quot;col_lang&quot;:&quot;Bits&quot;,
+                    &quot;col_style&quot;:&quot;alignRight,dataWidth,width_dynamic&quot;,
+                    &quot;col_header_title_attr&quot;:&quot;null&quot;,
+                    &quot;col_width&quot;:&quot;dynamic&quot;,
+                    &quot;col_operation&quot;:&quot;sum&quot;,
+                    &quot;default_col&quot;:1,
+                    &quot;availableratetotals&quot;:&quot;rate,total&quot;,
+                    &quot;defaultratetotal&quot;:&quot;total&quot;,
+                    &quot;availablegraphstyles&quot;:&quot;stacked,nonStacked&quot;,
+                    &quot;defaultgraphstyle&quot;:&quot;stacked&quot;,
+                    &quot;showother&quot;:0,
+                    &quot;percentok&quot;:0,
+                    &quot;units&quot;:'bB',
+                    &quot;total_operation&quot;:&quot;sum&quot;,
+                    &quot;lowbad&quot;:0,
+                    &quot;manufactured&quot;: 'null'}}                            
+
+
+
+                ]
+
+
+]
+
+</code></pre>
+<p>A designed report at a mininum will contain 3 unique objects. </p>
+<h4 id="headers">"headers"</h4>
+<p>The headers object is primarily used to populate <i>plixer.report_types</i> and <i>languages.custom</i></p>
+<ul>
+<li>
+<p><b>rpt_lang</b>: Key that is referenced for the report throughout the database.Pre-pending it with 'custom_' is a useful way to seperate designed report from default reports in the database, I would reccomend this as a styling suggestion. </p>
+</li>
+<li>
+<p><b>pretty_name</b>: Name the report will show up as in the report menu. </p>
+</li>
+<li>
+<p><b>menu_group</b>: This determines which menu the report will be available in. 23 represents "designed reports"</p>
+</li>
+</ul>
+<p><strong><em>rpt_langs must be a single string all lowercase, without spaces or special charectors</em></strong>  </p>
+<h4 id="group_by">"group_by"</h4>
+<p>Think of <b>group_by</b> objects as the columns you want the designed report to include. </p>
+<ul>
+<li>
+<p><b>col_name</b> : Same as "Report Field" in the Scrutinizer report designer UI. Whatever you put in here must match a possible Report Field in the product. </p>
+</li>
+<li>
+<p><b>col_lang</b> : Think of this as what you want the column to be named as in the report. Same as "Column Name" in report designer.</p>
+</li>
+</ul>
+<p><img src="designed_obj.png"></p>
+<ul>
+<li>
+<p><b>manufactured</b>: This will need to be set to 1 if the <b>col_name</b> you are using is a manufactured column (E.G srcipgroup) or 'null' if it is a standard <b>col_name</b> (E.G sourceipaddress)</p>
+</li>
+<li>
+<p><b>col_order</b>: Starts with number one and increments by 1 for each group_by object you add. This will be how the columns are ultimately laid out in the report. </p>
+</li>
+</ul>
+<h4 id="trend_by">"trend_by"</h4>
+<ul>
+<li>
+<p><b>col_nam_reg</b> : This object is used to determine what you want to trend the report by. Popular options would be <b>plixeraggregatedrecordcount</b> (number of flows) or <b>octetdeltacount</b> (number of bits)</p>
+</li>
+<li>
+<p><b>col_name_sum</b> : Same is <b>col_nam_reg</b> but you will need to prepend it with whatever operation method you are choosing (sum, avg, etc)</p>
+</li>
+<li>
+<p><b>units</b> : If you are using <b>octetdeltacount</b>  you will need the string 'bB' for units, if you are using <b>plixeraggregatedrecordcount</b> you will need a blank string ''. </p>
+</li>
+</ul>
+<h4 id="select">"select"</h4>
+<p>This is a special object that is only used in certain reports. It is responsible for inserting the <b>col_nam_reg</b> into plixer.report_types_select; if required. </p>
+<p>Namely - if you are using octetdeltacount, you will want to include the select object, if you are using plixeraggregatedrecord count you can omit it. </p>
+<p><strong><em> To repeat myself, building a couple designed reports in the UI and walking the DB tables for those reports will give you a better understanding of how all this gets glued together </em></strong></p>
+<h4 id="exporting-the-designed-reports">Exporting the Designed Reports</h4>
+<p>You will place each designed report into an variable at the bottom of your Script. This will late be imported into the main file. </p>
+<pre><code>example_reports_list = [example_designed_report ]
+</code></pre>
+<h3 id="importing-and-running">Importing and running</h3>
+<p>In the root of the project you will need to import your newly created dashboard_object(s) and designed_report object(s) into the <i>dashboard_maker.py</i> file. </p>
+<p>This can be done at the top of the file use the prebuilt gigamon dashboards as a reference for the formatting. </p>
+<h4 id="importing-dashboards">Importing Dashboards</h4>
+<pre><code>#prebuilt dashboards
+
+from custom_dashboards.gigamon.dashboards.gigamon_counts import count_monitor
+from custom_dashboards.gigamon.dashboards.gigamon_sus import sus_monitor
+from custom_dashboards.gigamon.dashboards.gigamon_dns import dns_monitor
+
+#newly created dashboards
+from custom_dashboards.my_new_project.dashboards.my_example_dash import example_gadgets_list 
+
+</code></pre>
+<h4 id="importing-designed-reports">Importing Designed Reports</h4>
+<pre><code>#prebuilt designed reports
+from custom_dashboards.gigamon.designed_reports.gigamon_reports import gigamon_reports_list
+
+#newly created designed report
+from custom_dashboards.my_new_project.designed_reports.my_example_reports import example_reports_list  
+</code></pre>
+<h4 id="adding-command-line-references">Adding Command Line References</h4>
+<p>The script use --make and --delete to handle creating the dashboards and deleting them. Update this function to include a reference you would like passed into the command line.</p>
+<p>In the below example </p>
+<ul>
+<li><code>python dashboard_maker.py --make myexampledash</code> - Would Create my new dashboard</li>
+<li>
+<p><code>python dashboard_maker.py --delete myexampledash</code> - Would delete my new dashboard.</p>
+</li>
+<li>
+<p><code>main()</code></p>
+<ul>
+<li>This functiont takes in the designed report list as your first argument, and then as many dashboard object as you like as the following. If you do not have a designed report object, just put in your dashboard objects. </li>
+</ul>
+</li>
+<li><code>delete_all()</code><ul>
+<li>This functiont takes in the designed report list as your first argument, and then as many dashboard object as you like as the following. If you do not have a designed report object, just put in your dashboard objects. </li>
+</ul>
+</li>
+</ul>
+<pre><code>
+if __name__ == &quot;__main__&quot;:
+
+    if args.make == 'gigamon':
+        print(f&quot;making dashboard for {args.make}&quot;)
+        main(gigamon_reports_list, dns_monitor, sus_monitor, count_monitor)
+    elif args.delete == 'gigamon':
+        delete_all(gigamon_reports_list, dns_monitor, sus_monitor, count_monitor)
+
+    ## here you can add in your own flags. 
+    elif args.make == 'myexampledash':
+        main(example_reports_list, example_gadgets_list )
+
+    elif args.delete == 'myexampledash':
+        delete_all(example_reports_list , example_gadgets_list )
+
+
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.1.2
+Build Date UTC : 2020-12-08 20:19:58.652045+00:00
+-->
