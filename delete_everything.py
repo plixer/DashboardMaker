@@ -47,13 +47,13 @@ def delete_designed_reports(report_object):
         for column in report:
             try:
                 report_lang = column['headers']['rpt_lang']
-                print(f'report lang to be deleted is {report_lang}')
+                print('report lang to be deleted is {}'.format(report_lang))
                 lang_to_find = report_handler.get_report_id(report_lang)
                 report_id = db_handler.execute_query(lang_to_find)[0]
-                print(f'found id {report_id} for {report_lang} ')
+                print('found id {} for {}'.format(report_id,report_lang))
                 delete_designed_reports_query = report_handler.delete_designed_report(report_id, report_lang)
                 for query in delete_designed_reports_query:
-                    print(f'running {query}')
+                    print('running {}'.format(query))
                     db_handler.execute_query(query)
                     print('success')
             except:
@@ -69,7 +69,7 @@ def delete_dashboard_gadgets(report_object):
     db_handler.open_connection()
     for report in report_object:
         report_name = report['name']
-        print(f'deleting gadget of report {report_name}')
+        print('deleting gadget of report {}'.format(report_name))
         delete_query = report_handler.delete_report_as_gadget(report_name)
         db_handler.execute_query(delete_query)
         print('success')
@@ -78,12 +78,12 @@ def delete_dashboard_gadgets(report_object):
 def delete_dashboards(report_object):
     db_handler.open_connection()
     dashboard_name = report_object[0]['dashboard']
-    print(f'finding ID for daashbaord {dashboard_name}')
+    print('finding ID for daashbaord {}'.format(dashboard_name))
     dashboard_id = dash_handler.find_dashboard_id(dashboard_name)
     dashboard_id = db_handler.execute_query(dashboard_id)[0]
-    print({f'Id is {dashboard_id} for {dashboard_name}'})
+    print({'Id is {} for {}'.format(dashboard_id,dashboard_name)})
     delete_dashboards_queries = dash_handler.delete_dashboard(dashboard_id)
-    print(f'deleting dashboard {dashboard_name}')
+    print('deleting dashboard {}'.format(dashboard_name))
     for dashboard_query in delete_dashboards_queries:
         db_handler.execute_query(dashboard_query)
     print('success')

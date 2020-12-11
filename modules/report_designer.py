@@ -40,7 +40,7 @@ class Report_designer():
         return ",".join(map(str, columns))  
 
     def get_available_id(self):
-        return(f"SELECT MAX(rt_id)+ 1 FROM plixer.report_types;")
+        return("SELECT MAX(rt_id)+ 1 FROM plixer.report_types;")
 
     def check_if_exists(self, report_obj):
         for report in report_obj:
@@ -60,8 +60,8 @@ class Report_designer():
                         graph_type = header_element[self.graph_type]
                         bi_width = header_element[self.bi_width]
                         totals_table = header_element[self.totals_table]
-                        print(f'creating insert statment for {rpt_lang}')
-                        headers = (f"INSERT INTO plixer.report_types (rt_id, rpt_lang, menugroup, graphtype, biwidth, totalstable, rt_source) VALUES ('{report_id}','{rpt_lang}','{menu_group}','{graph_type}',{bi_width},{totals_table},1);")
+                        print('creating insert statment for {}'.format(rpt_lang))
+                        headers = ("INSERT INTO plixer.report_types (rt_id, rpt_lang, menugroup, graphtype, biwidth, totalstable, rt_source) VALUES ('{}','{}','{}','{}',{},{},1);".format(report_id,rpt_lang,menu_group,graph_type,bi_width,totals_table))
                         return headers
                     except Exception as err:
                         print('error creating report headers, make sure you have all the needed keys rpt_lang, menu_group, graph_type, bi_width, totals_table ')
@@ -71,7 +71,7 @@ class Report_designer():
                 else:
                     print('report object does not have headers')
                     return
-        # return(f"INSERT INTO plixer.report_types (rt_id, rpt_lang, menugroup, graphtype, biwidth, totalstable, rt_source) VALUES ('{report_id}','{lang_key}','{menu_group}','{graph_type}',950,0,0);")
+
 
 
 
@@ -102,13 +102,13 @@ class Report_designer():
                         col_attr = column_groupby[self.col_attr]
                         col_width = column_groupby[self.col_width]
                     except KeyError as error:
-                        print(f'unable to create all required headers, verify that your object has all of the required headers {required_headers}')
+                        print('unable to create all required headers, verify that your object has all of the required headers {}'.format(required_headers))
                         print(column_groupby.keys())
                         print(error)
                         return
                     
-                    print(f'creating columns for {col_name}, {col_lang}')
-                    column_group  = f"('{report_id}','{col_name}','{col_order}','{col_lang}','{col_style}','{col_attr}','{col_width}')"
+                    print('creating columns for {}, {}'.format(col_name,col_lang))
+                    column_group  = "('{}','{}','{}','{}','{}','{}','{}')".format(report_id,col_name,col_order,col_lang,col_style,col_attr,col_width)
                     all_report_column.append(column_group)
 
                 elif self.trend_by in column:
@@ -119,7 +119,7 @@ class Report_designer():
                     col_style = column_trend[self.col_style]
                     col_attr = column_trend[self.col_attr]
                     col_width = column_trend[self.col_width]
-                    column_trend = f"('{report_id}','{col_name}','{col_order_trend}','{col_lang}','{col_style}','{col_attr}','{col_width}')"
+                    column_trend = "('{}','{}','{}','{}','{}','{}','{}')".format(report_id,col_name,col_order_trend,col_lang,col_style,col_attr,col_width)
                     all_report_column.append(column_trend)
 
 
@@ -129,7 +129,7 @@ class Report_designer():
         values = self._unpack(all_report_column)
       
     
-        return (f"INSERT INTO plixer.report_types_columns (rt_id,col_name,col_order,col_lang,col_style,col_header_title_attr,col_width) VALUES {values}")
+        return ("INSERT INTO plixer.report_types_columns (rt_id,col_name,col_order,col_lang,col_style,col_header_title_attr,col_width) VALUES {}".format(values))
 
 
 
@@ -148,14 +148,14 @@ class Report_designer():
                 if self.group_by in column:
                     
                     column_name = column[self.group_by][self.col_name]
-                    print(f'creating groupbys for {column_name}')
-                    column  = f"('{report_id}','{column_name}')"
+                    print('creating groupbys for {}'.format(column_name))
+                    column  = "('{}','{}')".format(report_id,column_name)
                     all_report_column.append(column)
 
         values = self._unpack(all_report_column)
 
 
-        return(f"INSERT INTO plixer.report_types_groupby (rt_id, col_name)VALUES{values}")
+        return("INSERT INTO plixer.report_types_groupby (rt_id, col_name)VALUES{}".format(values))
 
     def report_type_operations(self, report_id, report_columns):
 
@@ -179,15 +179,15 @@ class Report_designer():
                     units = col_trend[self.units]
                     total_operation = col_trend[self.total_operation]
                     lowbad = col_trend[self.lowbad]
-                    print(f'creating operations for {col_name}')
-                    column = (f"('{report_id}','{col_name}','{operation}','{default_col}','{availableratetotals}','{defaultratetotal}','{availablegraphstyles}','{defaultgraphstyle}',{showother},{percentok},'{units}','{total_operation}',{lowbad})")
+                    print('creating operations for {}'.format(col_name))
+                    column = ("('{}','{}','{}','{}','{}','{}','{}','{}',{},{},'{}','{}',{})".format(report_id,col_name,operation,default_col,availableratetotals,defaultratetotal,availablegraphstyles,defaultgraphstyle,showother,percentok,units,total_operation,lowbad))
                     all_report_column.append(column)
 
         values = self._unpack(all_report_column)
 
 
 
-        return(f"INSERT INTO plixer.report_types_operations(rt_id, col_name, operation, default_col, availableratetotals,defaultratetotal, availablegraphstyles, defaultgraphstyle, showother,percentok, units, total_operation, lowbad) VALUES {values}")
+        return("INSERT INTO plixer.report_types_operations(rt_id, col_name, operation, default_col, availableratetotals,defaultratetotal, availablegraphstyles, defaultgraphstyle, showother,percentok, units, total_operation, lowbad) VALUES {}".format(values))
 
     def report_type_select(self, report_id, report_columns):
 
@@ -200,20 +200,20 @@ class Report_designer():
                     
                     column_name = column[self.group_by][self.col_name]
                     manufactured = column[self.group_by][self.manufactured]
-                    column  = f"('{report_id}', '{column_name}', {manufactured})"
-                    print(f'creating groupby select for {column_name}')
+                    column  = "('{}', '{}', {})".format(report_id,column_name,manufactured)
+                    print('creating groupby select for {}'.format(column_name))
                     all_report_column.append(column)
 
                 elif self.select in column:
                     select_name = column[self.select][self.col_name]
                     manufactured_name = column[self.select][self.manufactured]
-                    column  = f"('{report_id}', '{select_name}', {manufactured_name})"
-                    print(f'creating tendby select for {select_name}')
+                    column  = "('{}', '{}', {})".format(report_id,select_name,manufactured_name)
+                    print('creating tendby select for {}'.format(select_name))
                     all_report_column.append(column)
 
         values = self._unpack(all_report_column)
 
-        return(f"INSERT INTO plixer.report_types_select(rt_id, col_name, manufactured)VALUES {values}")
+        return("INSERT INTO plixer.report_types_select(rt_id, col_name, manufactured)VALUES {}".format(values))
 
     def add_lang_kery(self, report_columns ):
         for report in report_columns:
@@ -223,12 +223,12 @@ class Report_designer():
                     column_header = column[self.headers]
                     report_lang = column_header[self.rpt_lang]
                     report_name = column_header[self.pretty_name]
-                    print(f'adding langkery for {report_lang} to make pretty name {report_name}')
+                    print('adding langkery for {} to make pretty name {}'.format(report_lang,report_name))
 
-        return(f"INSERT INTO languages.custom (id,string) VALUES ('{report_lang}','{report_name}');")
+        return("INSERT INTO languages.custom (id,string) VALUES ('{}','{}');".format(report_lang,report_name))
 
     def alter_sequence(self, report_id):
-        return(f"ALTER SEQUENCE plixer.report_types_rt_id_seq RESTART WITH {report_id};")
+        return("ALTER SEQUENCE plixer.report_types_rt_id_seq RESTART WITH {};".format(report_id))
 
     def refresh_viwes(self):
         return('REFRESH MATERIALIZED VIEW plixer.report_types_reports_in_group; REFRESH MATERIALIZED VIEW plixer.report_types_template2id; REFRESH MATERIALIZED VIEW plixer.report_types_all_report_groups;')

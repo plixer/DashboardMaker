@@ -12,7 +12,7 @@ class DB_handler:
     #method used to insert into DB
 
     def open_connection(self):
-        self.conn = psycopg2.connect(f"dbname={self.db_name} user={self.db_user} password={self.db_password} host={self.db_host}")
+        self.conn = psycopg2.connect("dbname={} user={} password={} host={}".format(self.db_name,self.db_user,self.db_password,self.db_host))
         self.cur = self.conn.cursor()
         return self.cur
 
@@ -35,7 +35,7 @@ class DB_handler:
     def test_connection(self):
 
         try:
-            self.conn = psycopg2.connect(f"dbname={self.db_name} user={self.db_user} password={self.db_password} host={self.db_host}")
+            self.conn = psycopg2.connect("dbname={} user={} password={} host={}".format(self.db_name,self.db_user,self.db_password,self.db_host))
             print('Connection has been Succesful')
             return True
         except psycopg2.Error as err:

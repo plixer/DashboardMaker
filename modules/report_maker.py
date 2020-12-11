@@ -37,7 +37,7 @@ def make_report(report_obj):
     print('getting available reportID')
     get_id_query = report_designer.get_available_id()
     rpt_id = db_handler.execute_query(get_id_query)[0]
-    print(f'report id is {rpt_id}')
+    print('report id is {}'.format(rpt_id))
 
     #create headers 
     print('creating headers')

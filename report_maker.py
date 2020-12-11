@@ -4,7 +4,7 @@ from modules.dashbaord_handler import Dash_handler
 from modules.report_handler import Report_handler
 from modules.json_handler import Json_handler
 from modules.report_designer import Report_designer
-from prebuilts.gigamon.gigamon_reports import gigamon_dns_queries
+
 
 
 import configparser

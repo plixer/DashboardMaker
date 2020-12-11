@@ -80,7 +80,7 @@ def get_availabled_saved_id():
     print('gettting saved report id')
     saved_id_query = report_handler.available_saved_id()
     saved_id = db_handler.execute_query(saved_id_query)[0]
-    print(f'saved_id is {saved_id}')
+    print('saved_id is {}'.format(saved_id))
     return saved_id
 
 
@@ -88,7 +88,7 @@ def get_availabled_saved_id():
 
 def create_report_object(report_object):
     rep_nam = report_object['name']
-    print(f'creating report object for {rep_nam}')
+    print('creating report object for {}'.format(rep_nam))
     saved_id = get_availabled_saved_id()
 
     report_name = report_object['name']
@@ -112,7 +112,7 @@ def created_saved_report(report_obj):
     saved_id = get_availabled_saved_id()
 
     report_name = json.loads(report_obj)["saved"]["name"]
-    print(f'{report_name} object created')
+    print('{} object created'.format(report_name))
     created_report_query = report_handler.create_report_query(saved_id,report_name,report_obj,1)
     
     db_handler.execute_query(created_report_query)
@@ -126,7 +126,7 @@ def make_dash_gadget(report_object):
     report_name = report_object['name']
     view = report_object['view']
     user = report_object['user_id']
-    print(f'making dashboard gadget for {report_name}')
+    print('making dashboard gadget for {}'.format(report_name))
     saved_id_query = report_handler.get_saved_report_id(report_name)
     saved_id = db_handler.execute_query(saved_id_query)[0]
     gadget_json = json_handler.gadget_json(view,saved_id)
@@ -142,7 +142,7 @@ def create_dashbord_json(report_list):
 
     for report in report_list:
         rep_name = report['name']
-        print(f'making gadget for {rep_name}')
+        print('making gadget for {}'.format(rep_name))
         gadget_id = report_handler.get_gadget_id(report['name'])
         gadget_id = db_handler.execute_query(gadget_id)[0]
         gadget_json = json_handler.add_gadget_json(gadget_id, report['position'])
@@ -156,7 +156,7 @@ def create_dashbord_json(report_list):
 
 
 def place_gadgets(dashboard_name, gadget_json):
-    print(f'placing gadgets on dash {dashboard_name}')
+    print('placing gadgets on dash {}'.format(dashboard_name))
     dash_id = dash_handler.find_dashboard_id(dashboard_name)
     dash_id = db_handler.execute_query(dash_id)[0]
 
@@ -182,7 +182,7 @@ def main(designed_reports = None, *kwargs):
 
     for dashboard in kwargs:
         dash_name = dashboard[0]['dashboard']
-        print(f'create dashboard {dash_name}')
+        print('create dashboard {}'.format(dash_name))
         create_dashboard(dashboard[0]['dashboard'])
 
     if designed_reports is not None:
@@ -210,7 +210,7 @@ db_handler.open_connection()
 if __name__ == "__main__":
 
     if args.make == 'gigamon':
-        print(f"making dashboard for {args.make}")
+        print("making dashboard for {}".format(args.make))
         main(gigamon_reports_list, dns_monitor, sus_monitor, count_monitor)
     elif args.delete == 'gigamon':
         delete_all(gigamon_reports_list, dns_monitor, sus_monitor, count_monitor)
