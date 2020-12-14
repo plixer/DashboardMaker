@@ -52,7 +52,7 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#example-commands">Example Commands</a>
+    <li class="toctree-l2"><a class="reference internal" href="#pre-build-dashboard-commands">Pre-Build Dashboard Commands</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#project-layout">Project layout</a>
     </li>
@@ -135,13 +135,15 @@
 <p>A project that helps Users and Engineers create 'quick start' dashboards for Scrutinizer deployments. </p>
 <h2 id="commands">Commands</h2>
 <ul>
-<li><code>python dashboard_maker.py --make [dashboard name]</code> - call the main function to build your dashboards and desinged reports.</li>
+<li><code>python dashboard_maker.py --make [dashboard name]</code> - call the main function to build your dashboards and desinged  reports.</li>
 <li><code>python dashboard_maker.py --delete [dashboard name]</code> - call the delete_all function to remove your dashboard and designed reports.</li>
 </ul>
-<h2 id="example-commands">Example Commands</h2>
+<h2 id="pre-build-dashboard-commands">Pre-Build Dashboard Commands</h2>
 <ul>
 <li><code>python dashboard_maker.py --make gigamon</code> - Create the pre-built gigamon dashboard.</li>
 <li><code>python dashboard_maker.py --delete gigamon</code> - Delete pre-built gigamon dashboard.</li>
+<li><code>python dashboard_maker.py --make palo</code> - Create the pre-built Palo Alto dashboard.</li>
+<li><code>python dashboard_maker.py --delete palo</code> - Delete pre-built Palo Alto dashboard.</li>
 </ul>
 <h2 id="project-layout">Project layout</h2>
 <pre><code>config/
@@ -496,5 +498,5 @@ if __name__ == &quot;__main__&quot;:
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2020-12-14 13:24:52.863582+00:00
+Build Date UTC : 2020-12-14 18:34:35.954830+00:00
 -->
