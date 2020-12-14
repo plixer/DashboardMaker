@@ -134,7 +134,7 @@ example_gadgets_list = [report_1, report_2] #all gadgets are put into a list and
 * <b>filters</b> : if you do not want any filters in your gadget leave this blank, otherwise you can pass them into it. 
     * as an example adding {"sdfPorts_0":"in_53-17"} to filters would filter the gadget for DNS traffic
 * <b>position</b> : Determins where each gadget will be placed. This is a little tricky to understand at first. The best approach I have found is to build a sample dashboard in the UI and look at <i>plixer.dash_tabs</i> in the databse to see what the positioning object looks like. This example image demonstrates how the position objects places each gadget in our sample gigamon dashboard. 
-<img src = 'Counts.png'>
+<img src = 'docs/Counts.png'>
 
 
 ### Adding Designed Reports
@@ -265,7 +265,7 @@ Think of <b>group_by</b> objects as the columns you want the designed report to 
 
 * <b>col_lang</b> : Think of this as what you want the column to be named as in the report. Same as "Column Name" in report designer.
 
-<img src="designed_obj.png">
+<img src="docs/designed_obj.png">
 
 * <b>manufactured</b>: This will need to be set to 1 if the <b>col_name</b> you are using is a manufactured column (E.G srcipgroup) or 'null' if it is a standard <b>col_name</b> (E.G sourceipaddress)
 
