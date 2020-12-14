@@ -78,15 +78,21 @@ def delete_dashboard_gadgets(report_object):
 def delete_dashboards(report_object):
     db_handler.open_connection()
     dashboard_name = report_object[0]['dashboard']
-    print('finding ID for daashbaord {}'.format(dashboard_name))
+    
     dashboard_id = dash_handler.find_dashboard_id(dashboard_name)
-    dashboard_id = db_handler.execute_query(dashboard_id)[0]
-    print({'Id is {} for {}'.format(dashboard_id,dashboard_name)})
-    delete_dashboards_queries = dash_handler.delete_dashboard(dashboard_id)
-    print('deleting dashboard {}'.format(dashboard_name))
-    for dashboard_query in delete_dashboards_queries:
-        db_handler.execute_query(dashboard_query)
-    print('success')
+
+    try:
+        dashboard_id = db_handler.execute_query(dashboard_id)[0]
+        print({'Id is {} for {}'.format(dashboard_id,dashboard_name)})
+        delete_dashboards_queries = dash_handler.delete_dashboard(dashboard_id)
+        print('deleting dashboard {}'.format(dashboard_name))
+        for dashboard_query in delete_dashboards_queries:
+            db_handler.execute_query(dashboard_query)
+        print('success')
+    except:
+        print('Dashboard {} does not exist Skipping'.format(dashboard_name))
+        pass
+
     db_handler.close_connection()
     return
 

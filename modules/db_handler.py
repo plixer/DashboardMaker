@@ -22,7 +22,7 @@ class DB_handler:
             record = [r[0] for r in self.cur.fetchall()]
             
         except:
-            record = 'nothing_returned'
+            record = ['nothing_returned']
         self.conn.commit()
         return(record)
 

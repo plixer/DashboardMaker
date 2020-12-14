@@ -7,7 +7,7 @@ Interactive documenation can be found here <a href="https://plixer.github.io/Das
 ## Commands
 
 
-* `python dashboard_maker.py --make [dashboard name]` - call the main function to build your dashboards and desinged reports.
+* `python dashboard_maker.py --make [dashboard name]` - call the main function to build your dashboards and designed reports.
 * `python dashboard_maker.py --delete [dashboard name]` - call the delete_all function to remove your dashboard and designed reports.
 
 ## Example Commands 

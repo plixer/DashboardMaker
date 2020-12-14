@@ -10,6 +10,7 @@ from modules.report_maker import make_report
 from custom_dashboards.gigamon.dashboards.gigamon_counts import count_monitor
 from custom_dashboards.gigamon.dashboards.gigamon_sus import sus_monitor
 from custom_dashboards.gigamon.dashboards.gigamon_dns import dns_monitor
+from custom_dashboards.paloalto.dashboards.paloalto import paloalto_dash
 
 
 # from custom_dashboards.gigamon.dashboards.dashboard_names import gigamon_dashboards
@@ -55,8 +56,22 @@ report_designer = Report_designer()
 db_handler = DB_handler(db_name,db_user,db_pass,db_host)
 
 
+def check_if_exists(dashbaord_name):
+
+    exists_query =  dash_handler.find_dashboard_id(dashbaord_name)
+    dashboard_id = db_handler.execute_query(exists_query)
+
+    if dashboard_id.len > 1:
+        print('exists')
+    print(dashboard_id)
+
+
+
 # create the dashboard. 
 def create_dashboard(dashbaord_name):
+
+
+
     #find next available dashID
     dashboard_id_query = dash_handler.available_dash_id()
     dashboard_id = db_handler.execute_query(dashboard_id_query)[0]
@@ -69,6 +84,10 @@ def create_dashboard(dashbaord_name):
 
     make_visible_query = dash_handler.make_visible(dashboard_id, 1)
     db_handler.execute_query(make_visible_query)
+
+
+
+
 
 
 
@@ -214,7 +233,14 @@ if __name__ == "__main__":
         main(gigamon_reports_list, dns_monitor, sus_monitor, count_monitor)
     elif args.delete == 'gigamon':
         delete_all(gigamon_reports_list, dns_monitor, sus_monitor, count_monitor)
+    elif args.make == 'palo':
+        main(None, paloalto_dash)
+    elif args.delet == 'palo':
+        delete_all(None,paloalto_dash)
 
+
+
+# check_if_exists('Gigamon - DNS Monitor')
 
 
 
