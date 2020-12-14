@@ -8,10 +8,13 @@ A project that helps Users and Engineers create 'quick start' dashboards for Scr
 * `python dashboard_maker.py --make [dashboard name]` - call the main function to build your dashboards and desinged  reports.
 * `python dashboard_maker.py --delete [dashboard name]` - call the delete_all function to remove your dashboard and designed reports.
 
-## Example Commands 
+
+## Pre-Build Dashboard Commands  
 
 * `python dashboard_maker.py --make gigamon` - Create the pre-built gigamon dashboard.
 * `python dashboard_maker.py --delete gigamon` - Delete pre-built gigamon dashboard.
+* `python dashboard_maker.py --make palo` - Create the pre-built Palo Alto dashboard.
+* `python dashboard_maker.py --delete palo` - Delete pre-built Palo Alto dashboard.
 
 
 ## Project layout
