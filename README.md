@@ -195,7 +195,7 @@ example_designed_report = [
                     "col_style":"width_dynamic",
                     "col_header_title_attr":"null",
                     "col_width":"dynamic",
-                    "manufactured": 'null'}},
+                    "manufactured": "null"}},
                     {"group_by":{
                     "col_name":"applicationid",
                     "col_order":3,
@@ -203,11 +203,11 @@ example_designed_report = [
                     "col_style":"width_dynamic",
                     "col_header_title_attr":"null",
                     "col_width":"dynamic",
-                    "manufactured": 'null'}},
+                    "manufactured": "null"}},
 
                     {"select":{
                     "col_name":"octetdeltacount",
-                    "manufactured": 'null'}},
+                    "manufactured": "null"}},
                 
                     
 
@@ -227,10 +227,10 @@ example_designed_report = [
                     "defaultgraphstyle":"stacked",
                     "showother":0,
                     "percentok":0,
-                    "units":'bB',
+                    "units":"bB",
                     "total_operation":"sum",
                     "lowbad":0,
-                    "manufactured": 'null'}}                            
+                    "manufactured": "null"}}                            
                 
                     
 
