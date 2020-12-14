@@ -2,6 +2,8 @@
 
 A project that helps Users and Engineers create 'quick start' dashboards for Scrutinizer deployments. 
 
+Interactive documenation can be found here <a href="https://plixer.github.io/DashboardMaker/">Dashboard Maker Docs</a>
+
 ## Commands
 
 
